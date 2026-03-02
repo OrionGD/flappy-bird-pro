@@ -1,14 +1,15 @@
 # 🐦 Flappy Bird Pro – Cross-Platform Game
 
-[![Live Demo](https://img.shields.io/badge/demo-play.now-6c5ce7?style=for-the-badge&logo=google-chrome)](https://flappybirdpro.netlify.app)
-[![Android](https://img.shields.io/badge/android-apk-00b894?style=for-the-badge&logo=android)](https://github.com/yourusername/flappy-bird-pro/releases)
+[![Live Demo](https://img.shields.io/badge/demo-play.now-6c5ce7?style=for-the-badge&logo=google-chrome)](https://flappy-bird-pro-mocha.vercel.app/)
+[![Android](https://img.shields.io/badge/android-apk-00b894?style=for-the-badge&logo=android)](https://github.com/OrionGD/flappy-bird-pro/releases/tag/v1.0.0)
 [![Made with](https://img.shields.io/badge/made%20with-HTML5/CSS3/JS-fdcb6e?style=for-the-badge&logo=javascript)](https://developer.mozilla.org)
 [![Capacitor](https://img.shields.io/badge/powered%20by-Capacitor-6c5ce7?style=for-the-badge&logo=capacitor)](https://capacitorjs.com)
 
 
 A **professionally engineered** Flappy Bird game with **5 progressive difficulty levels**, **accessibility features**, and **cross-platform deployment** – running seamlessly on web browsers and as a native Android application.
 
-> 🎮 **Play Now**: [Live Demo](https://flappybirdpro.vercel.app) | 📱 **Download APK**: [Android Release](https://github.com/OrionGD/flappy-bird-pro/releases)
+> 🎮 **Play Now**: [Live Demo](https://flappy-bird-pro-mocha.vercel.app/) | 📱 **Download APK**: [Android Release](https://github.com/OrionGD/flappy-bird-pro/releases/tag/v1.0.0)
+
 
 ---
 
@@ -73,40 +74,62 @@ Deployment       → Netlify, GitHub Releases
 
 ## 🏗️ System Architecture
 
-```
-┌─────────────────────────────────────────────────────┐
-│                    CLIENT LAYER                      │
-├─────────────────────────────────────────────────────┤
-│  🎮 Game Engine (game.js)                            │
-│  ├── GameState Manager                               │
-│  ├── Physics Engine (gravity, velocity)             │
-│  ├── Collision Detection System                      │
-│  └── Level Progression Controller                    │
-├─────────────────────────────────────────────────────┤
-│  🎨 Renderer (game.js)                               │
-│  ├── Canvas API Drawing Layer                        │
-│  ├── Particle Effect System                          │
-│  ├── UI Component Renderer                           │
-│  └── Animation Controller                            │
-├─────────────────────────────────────────────────────┤
-│  📱 UI Layer (index.html + styles.css)               │
-│  ├── Responsive Layout System                        │
-│  ├── Event Handlers (touch/keyboard)                 │
-│  └── Accessibility Features                          │
-└─────────────────────────────────────────────────────┘
-                           │
-                           ▼
-┌─────────────────────────────────────────────────────┐
-│              DEPLOYMENT LAYERS                        │
-├─────────────────────────────────────────────────────┤
-│  🌐 Web Deployment                                    │
-│  └── Static Hosting (Netlify/Vercel)                 │
-├─────────────────────────────────────────────────────┤
-│  📱 Android (Capacitor)                               │
-│  ├── WebView Wrapper                                 │
-│  ├── Native API Bridge                               │
-│  └── Signed APK Generation                           │
-└─────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+
+%% =======================
+%% CLIENT LAYER
+%% =======================
+
+subgraph CLIENT_LAYER["CLIENT LAYER"]
+
+    subgraph GAME_ENGINE["🎮 Game Engine (game.js)"]
+        GS[GameState Manager]
+        PE[Physics Engine\nGravity • Velocity]
+        CD[Collision Detection System]
+        LP[Level Progression Controller]
+    end
+
+    subgraph RENDERER["🎨 Renderer (game.js)"]
+        CA[Canvas API Drawing Layer]
+        PS[Particle Effect System]
+        UI[UI Component Renderer]
+        AN[Animation Controller]
+    end
+
+    subgraph UI_LAYER["📱 UI Layer (index.html + styles.css)"]
+        RL[Responsive Layout System]
+        EH[Event Handlers\nTouch • Keyboard]
+        AC[Accessibility Features]
+    end
+
+end
+
+%% =======================
+%% DEPLOYMENT LAYER
+%% =======================
+
+subgraph DEPLOYMENT_LAYER["DEPLOYMENT LAYERS"]
+
+    subgraph WEB["🌐 Web Deployment"]
+        SH[Static Hosting\nNetlify • Vercel]
+    end
+
+    subgraph ANDROID["📱 Android (Capacitor)"]
+        WV[WebView Wrapper]
+        NB[Native API Bridge]
+        APK[Signed APK Generation]
+    end
+
+end
+
+%% =======================
+%% FLOW CONNECTIONS
+%% =======================
+
+CLIENT_LAYER --> DEPLOYMENT_LAYER
+WEB --> SH
+ANDROID --> WV
 ```
 
 ---
