@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Fixed viewport meta - removed user-scalable -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird Pro · Responsive UX</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="particles"></div>
+    
+    <div class="game-wrapper">
+        <!-- Main Game Container -->
+        <div id="game-container">
+            <!-- Score Display -->
+            <div id="score-display">
+                <span id="scoreText">0</span>
+                <span id="levelText">LEVEL 1</span>
+            </div>
+            
+            <!-- Pause Indicator -->
+            <div id="pause-indicator">
+                <i class="fas fa-pause-circle"></i>
+                <span>PAUSED</span>
+            </div>
+            
+            <!-- Game Canvas -->
+            <canvas id="flappyCanvas" width="300" height="500"></canvas>
+            
+            <!-- Message Box (dynamic) -->
+            <div id="message-box">
+ 
+                <p class="highlight"></p>
+                <div class="control-hint">
+                    <span class="desktop-hint"></span>
+                    <span class="mobile-hint"><i class="fas fa-hand-pointer"></i> </span>
+                </div>
+            </div>
+
+            <!-- Game Control Panel -->
+            <div class="control-panel">
+                <!-- Slow Motion Toggle -->
+                <button id="slowMoButton" class="control-btn" title="Toggle Slow Motion">
+                    <i class="fas fa-clock"></i>
+                    <span class="btn-text">Slow Mo</span>
+                </button>
+                
+                <!-- Mobile Action Buttons (visible only on mobile) -->
+                <div class="mobile-actions">
+                    <button id="mobilePauseBtn" class="action-btn pause-btn" title="Pause Game">
+                        <i class="fas fa-pause"></i>
+                        <span>PAUSE</span>
+                    </button>
+                    <button id="mobileExitBtn" class="action-btn exit-btn" title="Exit to Menu">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>EXIT</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desktop Keyboard Hint (visible only on desktop) -->
+        <div class="keyboard-hint desktop-only">
+            <div class="key-item">
+                <span class="key">↑</span>
+                <span class="key-label">JUMP</span>
+            </div>
+            <div class="key-item">
+                <span class="key space">␣</span>
+                <span class="key-label">PAUSE/EXIT</span>
+            </div>
+        </div>
+
+        <!-- Mobile Gesture Hint (visible only on mobile) -->
+        <div class="gesture-hint mobile-only">
+            <div class="gesture-item">
+                <i class="fas fa-hand-pointer"></i>
+                <span>Tap canvas to jump</span>
+            </div>
+            <div class="gesture-item">
+                <i class="fas fa-pause-circle"></i>
+                <span>Use buttons below</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="game.js"></script>
+</body>
+</html>

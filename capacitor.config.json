@@ -1,0 +1,6 @@
+{
+  "appId": "com.oriongd.flappybird",
+  "appName": "flappy-bird",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
